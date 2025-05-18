@@ -27,8 +27,10 @@ const Home = () => {
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);
+        console.log("API URL:", process.env.REACT_APP_API_URL);
       })
       .catch((err) => {
+        console.log("API URL:", "Failed to fetch");
         setLoading(false);
         // Optionally, handle error here (e.g., show a message)
       });
