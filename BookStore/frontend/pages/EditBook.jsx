@@ -35,26 +35,26 @@ const EditBook = () => {
       });
   }, [id]);
 
-  const handleEditBook = () => {
-    const data = {
-      title,
-      author,
-      publishYear,
-    };
-    setLoading(true);
-    axios
-      .put(`http://localhost:5555/books/${id}`, data)
-      .then(() => {
-        setLoading(false);
-        enqueueSnackbar("Book updated successfully", { variant: "success" });
-        navigate("/");
-      })
-      .catch((error) => {
-        setLoading(false);
-        enqueueSnackbar("Error updating book", { variant: "error" });
-        console.log(error);
-      });
+const handleEditBook = () => {
+  const data = {
+    title,
+    author,
+    publishYear,
   };
+  setLoading(true);
+  axios
+    .put(`${API_URL}/books/${id}`, data) // <-- use API_URL here
+    .then(() => {
+      setLoading(false);
+      enqueueSnackbar("Book updated successfully", { variant: "success" });
+      navigate("/");
+    })
+    .catch((error) => {
+      setLoading(false);
+      enqueueSnackbar("Error updating book", { variant: "error" });
+      console.log(error);
+    });
+};
 
   return (
     <div className="p-4">
