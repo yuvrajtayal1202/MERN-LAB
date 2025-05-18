@@ -7,7 +7,7 @@
 
 | 📁 Project Name | 🔗 Live Demo | 🛠️ Tech Stack | 📌 Status |📁 Folder Link |
 |----------------|--------------|----------------|------------|------------|
-| 💰 Money Mine| [View](https://notesnest-one.vercel.app/)  | Fire Base, React, CRUD, Router, Authentication| 🚧 In Progress | [`link`](./MoneyMine) |
+| 📚 Book Store| [View](https://notesnest-one.vercel.app/)  | Fire Base, React, CRUD, Router, Authentication| ✅ Completed | [`link`](./BookStore) |
 
 _(This table will grow daily as I push more mini-projects here.)_
 <!-- 🧪 Testing
