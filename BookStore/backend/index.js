@@ -9,13 +9,11 @@ app.use(express.json());
 
 // CORS middleware must come BEFORE routes!
 app.use(cors())
-// app.use(
-//   cors({
-//     origin: "http://localhost:5173",
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     allowedHeaders: ["Content-Type"],
-//   })
-// );
+app.use(cors({
+  origin: 'https://book-store-tan-one.vercel.app', // your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 
 app.use("/books", booksRoute);
 
