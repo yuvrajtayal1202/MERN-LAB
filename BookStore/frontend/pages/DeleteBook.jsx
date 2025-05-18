@@ -8,6 +8,7 @@ const DeleteBook = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 const {id} = useParams()
+  const { enqueueSnackbar } = useSnackbar();
 
     const hanbleBookDelete = ()=>{
       setLoading(true)
@@ -15,11 +16,15 @@ const {id} = useParams()
 
       .then(() =>{
         setLoading(false)
+                enqueueSnackbar('Book Created successfully', { variant: 'success' });
+
         navigate('/')
       })
       .catch((err) =>{
         console.log(err)
         setLoading(false)
+                enqueueSnackbar('Book Created successfully', { variant: 'success' });
+
       })
     }
   return (
