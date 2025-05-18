@@ -1,26 +1,26 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from 'cors'
 import { PORT, mongoURL } from "./config.js";
 import booksRoute from "./routes/booksRoute.js";
 const app = express();
 
 app.use(express.json());
 
-app.use("/books", booksRoute);
-
-app.use(cors());
-
+// CORS middleware must come BEFORE routes!
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
 );
 
+app.use("/books", booksRoute);
+
 app.get("/", (req, res) => {
   console.log(req);
-  return res.status(234).send("Welcome TO the the bopok store");
+  return res.status(200).send("Welcome TO the book store");
 });
 
 mongoose

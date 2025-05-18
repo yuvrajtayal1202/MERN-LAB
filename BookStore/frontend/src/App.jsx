@@ -13,8 +13,8 @@ function App() {
     <>
     <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='/book/create' element={<CreateBook/>}/>
-      <Route path='/books/detail/:id' element={<ShowBooks/>}/>
+      <Route path='/books/create' element={<CreateBook/>}/>
+      <Route path='/books/details/:id' element={<ShowBooks/>}/>
       <Route path='/books/edit/:id' element={<EditBook/>}/>
       <Route path='/books/delete/:id' element={<DeleteBook/>}/>
     </Routes>
