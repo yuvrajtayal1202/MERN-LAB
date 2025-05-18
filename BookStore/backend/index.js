@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import cors from 'cors'
+import cors from "cors";
 import { PORT, mongoURL } from "./config.js";
 import booksRoute from "./routes/booksRoute.js";
 const app = express();
@@ -9,11 +9,13 @@ app.use(express.json());
 
 // CORS middleware must come BEFORE routes!
 // app.use(cors())
-app.use(cors({
-  origin: 'https://book-store-tan-one.vercel.app', // your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: "https://book-store-tan-one.vercel.app", // your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use("/books", booksRoute);
 
