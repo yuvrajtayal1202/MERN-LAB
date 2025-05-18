@@ -9,10 +9,15 @@ const DeleteBook = () => {
     const navigate = useNavigate();
 const {id} = useParams()
   const { enqueueSnackbar } = useSnackbar();
+  const API_URL = (
+  typeof process !== "undefined" && process.env.REACT_APP_API_URL
+    ? process.env.REACT_APP_API_URL
+    : "http://localhost:5555"
+).replace(/\/$/, "");
 
     const hanbleBookDelete = ()=>{
       setLoading(true)
-      axios.delete(`http://localhost:5555/books/${id}`)
+      axios.delete(`${API_URL}/books/${id}`)
 
       .then(() =>{
         setLoading(false)

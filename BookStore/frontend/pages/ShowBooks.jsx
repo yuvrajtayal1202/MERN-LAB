@@ -7,11 +7,15 @@ const ShowBooks = () => {
   const [book, setBook] = useState({})
   const [loading, setLoading] = useState(false)
   const {id} = useParams()
-
+const API_URL = (
+  typeof process !== "undefined" && process.env.REACT_APP_API_URL
+    ? process.env.REACT_APP_API_URL
+    : "http://localhost:5555"
+).replace(/\/$/, "");
   useEffect(()=>{
     setLoading(true)
     axios
-    .get(`http://localhost:5555/books/${id}`)
+    .get(`${API_URL}/books/${id}`)
     .then((res) =>{
       setBook(res.data)
       setLoading(false)
