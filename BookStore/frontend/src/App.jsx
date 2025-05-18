@@ -5,7 +5,7 @@ import Home from '../pages/Home'
 import ShowBooks from '../pages/ShowBooks'
 import CreateBook from '../pages/CreateBook'
 import EditBook from '../pages/EditBook'
-import DeleteBook from '../pages/deleteBook'
+import DeleteBook from '../pages/DeleteBook'
 
 function App() {
 
