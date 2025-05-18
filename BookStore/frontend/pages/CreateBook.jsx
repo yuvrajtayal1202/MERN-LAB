@@ -5,8 +5,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 const API_URL = (
-  typeof process !== "undefined" && process.env.REACT_APP_API_URL
-    ? process.env.REACT_APP_API_URL
+  typeof import.meta !== "undefined" && import.meta.env.VITE_REACT_APP_API_URL
+    ? import.meta.env.VITE_REACT_APP_API_URL
     : "http://localhost:5555"
 ).replace(/\/$/, "");
 const CreateBooks = () => {

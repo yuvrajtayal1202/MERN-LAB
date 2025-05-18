@@ -14,8 +14,8 @@ const EditBook = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { id } = useParams();
 const API_URL = (
-  typeof process !== "undefined" && process.env.REACT_APP_API_URL
-    ? process.env.REACT_APP_API_URL
+  typeof import.meta !== "undefined" && import.meta.env.VITE_REACT_APP_API_URL
+    ? import.meta.env.VITE_REACT_APP_API_URL
     : "http://localhost:5555"
 ).replace(/\/$/, "");
   useEffect(() => {
