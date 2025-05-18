@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useParams } from 'react';
+import React, { useState, useEffect } from 'react';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 
 const EditBook = () => {
@@ -12,41 +12,42 @@ const EditBook = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
+  const { id } = useParams();
 
-const {id} = useParams()
-useEffect(()=>{
-  setLoading(true)
-  axios.get(`https://localhost:5555/books/${id}`)
-  .then((res) =>{
-    setAuthor(res.data.author);
-    set.PublishYear(res.data.publishYear);
-    setTitle(res.data.title);
-    setLoading(false);
-  }).catch((err) =>{
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`http://localhost:5555/books/${id}`)
+      .then((res) => {
+        setAuthor(res.data.author);
+        setPublishYear(res.data.publishYear);
+        setTitle(res.data.title);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        alert("An error occurred, please check the console");
+        console.log(err);
+      });
+  }, [id]);
 
-    setLoading(false)
-  alert("An error occured please check teh console")
-  console.log(err)
-  })
-})
   const handleEditBook = () => {
     const data = {
       title,
       author,
       publishYear,
     };
-    setLoading(true); 
+    setLoading(true);
     axios
       .put(`http://localhost:5555/books/${id}`, data)
       .then(() => {
         setLoading(false);
-        enqueueSnackbar('Book Created successfully', { variant: 'success' });
+        enqueueSnackbar('Book updated successfully', { variant: 'success' });
         navigate('/');
       })
       .catch((error) => {
         setLoading(false);
-        // alert('An error happened. Please Chack console');
-        enqueueSnackbar('Error', { variant: 'error' });
+        enqueueSnackbar('Error updating book', { variant: 'error' });
         console.log(error);
       });
   };
@@ -90,6 +91,6 @@ useEffect(()=>{
       </div>
     </div>
   );
-}
+};
 
-export default EditBook
+export default EditBook;
