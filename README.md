@@ -7,7 +7,7 @@
 
 | 📁 Project Name | 🔗 Live Demo | 🛠️ Tech Stack | 📌 Status |📁 Folder Link |
 |----------------|--------------|----------------|------------|------------|
-| 📚 Book Store| [View](https://bookstore-three-navy.vercel.app/)  |MERN, NotiStick, react-icons| ✅ Completed | [`link`](./BookStore) |
+| 📚 Book Store| [View](https://book-store-tan-one.vercel.app/)  |MERN, NotiStick, react-icons| ✅ Completed | [`link`](./BookStore) |
 
 _(This table will grow daily as I push more mini-projects here.)_
 <!-- 🧪 Testing
