@@ -7,6 +7,7 @@ const app = express()
 app.get('/', (req, res) =>{
     res.status(200).send('This is Home Page')
 })
+app.use(express.json()); 
 
 app.use('/blogs', blogRoutes)
 
